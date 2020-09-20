@@ -1,0 +1,40 @@
+html,body,ul,p,h1,h2,h3,h4,h5,h6,dl,dt,dd,form,fieldset,legend,table,ol,th,td,colgroup,caption{margin:0;padding:0;}/*减轻浏览器负担*/
+a{text-decoration: none;}
+li{list-style: none;}
+h1,h2,h3,h4,h5,h6,b,strong{font-weight: normal;}
+i,em{font-style: normal;}
+img{display: block;border:none;}/*去除图片下面3px距离/去除超链接图片的蓝色边框*/
+a,input,video,audio{outline: none;}/*删除点击出现虚线框*/
+textarea{resize: none;}
+table {border-collapse:collapse;border-spacing: none;}
+fieldset{border:0 none;}
+body{font:12px "微软雅黑";}
+.clearBoth:after{
+	content: "";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+	visibility: hidden;
+}
+.clearBoth{zoom: 1;}/*万能清除，防止浮动元素父元素高度塌陷*/
+.fixed{
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}/*固定定位居中*/
+.mar-tn{margin-top: 0 !important;}
+.mar-ln{margin-left: 0 !important;}
+.mar-rn{margin-right: 0 !important;}
+.mar-bn{margin-bottom: 0 !important;}
+.bor-tn{margin-top: 0 !important;}
+.bor-ln{border-left: 0 !important;}
+.bor-rn{border-right: 0 !important;}
+.bor-bn{border-bottom: 0 !important;}
+.pad-tn{padding-top: 0 !important;}
+.pad-ln{padding-left: 0 !important;}
+.pad-rn{padding-right: 0 !important;}
+.oad-bn{padding-bottom: 0 !important;}

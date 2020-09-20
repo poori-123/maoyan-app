@@ -2,6 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import Plugins from './plugins';
+import './assets/iconfont.css';
+import './mock';
+
+Vue.use(Plugins);
 
 Vue.config.productionTip = false
 
