@@ -1,5 +1,6 @@
 @font-face {font-family: "iconfont";
-  src: url('iconfont.ttf?t=1600486532173') format('truetype');
+  src: url('iconfont.ttf?t=1600580939012') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+
 }
 
 .iconfont {
@@ -8,6 +9,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.iconguanzhu:before {
+  content: "\e61c";
 }
 
 .iconarrowdown-copy:before {
