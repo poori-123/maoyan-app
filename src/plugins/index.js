@@ -46,14 +46,17 @@ export default {
 
         Vue.mixin({
             watch: {
-                loading(newVal){
-                    if(this.handleLoading){
-                        if(!newVal){
-                            this.$showLoading();
-                        }else{
-                            this.$hideLoading();
+                loading: {
+                    handler(newVal){
+                        if(this.handleLoading){
+                            if(!newVal){
+                                this.$showLoading();
+                            }else{
+                                this.$hideLoading();
+                            }
                         }
-                    }
+                    },
+                    immediate: true
                 }
             },
             methods: {

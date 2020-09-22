@@ -1,17 +1,18 @@
 export const BASE = 'http://localhost:8080/api';
 
-export const GOODREPUTATION_API = '/topRatedMovies?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
-export const TOPRATED_API = '/movieOnInfoList?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
-export const GETMORE_API = '/moreComingList?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const GOODREPUTATION_API = '/ajax/topRatedMovies?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const TOPRATED_API = '/ajax/movieOnInfoList?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const GETMORE_API = '/ajax/moreComingList?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
 
 
-export const GETCLASSICMOVIE_API = '/moreClassicList?sortId=1&showType=3&limit=10&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const GETCLASSICMOVIE_API = '/ajax/moreClassicList?sortId=1&showType=3&limit=10&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
 
-export const GETEXPECTEDMOVIE_API = '/mostExpected?ci=30&limit=10&token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const GETEXPECTEDMOVIE_API = '/ajax/mostExpected?limit=10&token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10'; 
 
-export const GETCOMINEMOVIE_API = '/comingList?ci=30&token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&limit=10&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
-export const GETMORECOMINE_API = '/moreComingList?ci=30&token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&limit=10&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const GETCOMINEMOVIE_API = '/ajax/comingList?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&limit=10&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const GETMORECOMINE_API = '/ajax/moreComingList?token=3XqXt4Iwn7dhfq8wpv0APcryo0EAAAAAkgsAAK0ysljEVcf_TtbyjnzOB3PIHx7NYPO93qes1ovI73of8KL3MLpRmjQ1CiXPOA9C8Q&limit=10&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10'; 
 
-export const GETCINEMA_API = '/moreCinemas?day=2020-09-20&limit=20&districtId=-1&lineId=-1&hallType=-1&brandId=-1&serviceId=-1&areaId=-1&stationId=-1&item=&updateShowDay=true&reqId=1600588230596&cityId=30&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
-export const GETCINEMA_TYPE = '/filterCinemas?ci=30&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
+export const GETCINEMA_API = '/ajax/moreCinemas?limit=20&districtId=-1&lineId=-1&hallType=-1&brandId=-1&serviceId=-1&areaId=-1&stationId=-1&item=&updateShowDay=true&reqId=1600588230596&optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10'; /* 其他地区选择数据 */
+export const GETCINEMA_TYPE = '/ajax/filterCinemas?optimus_uuid=89B71D60FA2311EAB48765096B5403F0E96327FE6CC3415B99338D93D5C7CD3A&optimus_risk_level=71&optimus_code=10';
 
+export const GETCITIES_API = '/dianying/cities.json';

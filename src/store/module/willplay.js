@@ -19,18 +19,19 @@ export default {
             }else{ 
                 return false
             }
+        },
+        cityId(s1,g1,s2,g2){
+            console.log(s2.chooseCity.id)
+            return s2.chooseCity.id;
         }
     },
     mutations: {
+        initMostExpectedList(state,payload){
+            state.mostExpectedList = payload;
+            state.isInitE = true;
+        },
         setMostExpectedList(state,payload){
-            if(state.mostExpectedList,length == 0){
-                state.mostExpectedList = payload;
-            }else{
-                state.mostExpectedList.push(...payload);
-            }
-            if(!state.isInitE){
-                state.isInitE = true;
-            }
+            state.mostExpectedList.push(...payload);
         },
         setIsExpectedMax(state){
             state.isExpectedMax = true;
@@ -52,19 +53,23 @@ export default {
     },
     actions: {
         async getMostExpectedList(store,payload){
-            var { data:{ coming, paging } } = await Http.get(GETEXPECTEDMOVIE_API,payload);
+            var { data:{ coming, paging } } = await Http.get(GETEXPECTEDMOVIE_API,{ ...payload, ci: store.getters.cityId });
             var datalist = coming.map( item => ({
                 ...item,
                 img: item.img.replace('/w.h','') + '@1l_1e_1c_170w_230h'
             }) )
             var hasMore = paging.hasMore;
-            store.commit('setMostExpectedList',datalist);
+            if(!payload){
+                store.commit('initMostExpectedList',datalist);
+            }else{
+                store.commit('setMostExpectedList',datalist);
+            }
             if(!hasMore){
                 store.commit('setIsExpectedMax');
             }
         },
         async getComingMovieList(store){
-            var { data: {coming,movieIds}  } = await Http.get(GETCOMINEMOVIE_API);
+            var { data: {coming,movieIds}  } = await Http.get(GETCOMINEMOVIE_API, { ci: store.getters.cityId });
             var list = coming.map( item => ({
                 ...item,
                 img: item.img.replace('/w.h','') + '@1l_1e_1c_170w_230h'
@@ -94,7 +99,7 @@ export default {
             store.commit('togIsLoadMore');
             var arr = store.state.movieIDs.splice(0,10);
             var str = arr.join(',');
-            var { data: {coming} } = await Http.get(GETMORECOMINE_API,{ movieIds: str });
+            var { data: {coming} } = await Http.get(GETMORECOMINE_API,{ movieIds: str, ci: store.getters.cityId  });
             var list = coming.map( item => ({
                 ...item,
                 img: item.img.replace('/w.h','') + '@1l_1e_1c_170w_230h'

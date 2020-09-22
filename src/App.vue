@@ -69,6 +69,16 @@ export default {
     showHeaderMenuAction(){
       this.showHeaderMenu = !this.showHeaderMenu;
     }
+  },
+  watch: {
+    $route:{
+      handler(newVal){
+        var reg = /(^\/[a-z]+)\/?/;
+        reg.test(newVal.path);
+        this.nowRoute = RegExp.$1;
+      },
+      immediate: true
+    }
   }
 }
 </script>

@@ -73,10 +73,17 @@ export default {
       comingMovieList: state => state.willplay.comingMovieList,
       isLoadMore: state => state.willplay.isLoadMore,
       isComingMax: state => state.willplay.isComingMax,
+      chooseCity: state => state.chooseCity
     }),
     ...mapGetters({
       loading: 'willplay/isInit'
     })
+  },
+  watch: {
+    chooseCity(){
+      this.$store.dispatch('willplay/getMostExpectedList');
+      this.$store.dispatch('willplay/getComingMovieList');
+    }
   },
   methods: {
     getMoreExpected(){

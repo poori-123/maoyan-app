@@ -36,6 +36,11 @@ const routes = [
         path: 'classic',
         name: 'classic',
         component: () => import(/* webpackChunkName : "classic" */'../components/home/classic.vue')
+      },
+      {
+        path: 'city',
+        name: 'city',
+        component: () => import(/* webpackChunkName : "city" */'../components/home/city.vue')
       }
     ]
   },

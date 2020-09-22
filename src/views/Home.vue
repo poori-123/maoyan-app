@@ -1,8 +1,8 @@
 <template>
   <div class="page" id="home">
-    <div class="home-nav">
-      <div class="area">
-        <span>{{chooseArea}}</span>
+    <div class="home-nav" >
+      <div class="area" @click="$router.push('city')" >
+        <span>{{chooseCity.nm}}</span>
         <span class="iconfont iconarrowdown-copy"></span>
       </div>
       <div class="mode">
@@ -17,11 +17,14 @@
         <span class="iconfont iconsearch"></span>
       </div>
     </div>
-    <router-view class="subpage" />
+    <keep-alive>
+      <router-view class="subpage" />
+    </keep-alive>
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
   data(){
     return {
@@ -35,7 +38,7 @@ export default {
           text:'影院'
         },
         {
-          path:'willPlay',
+          path:'willplay',
           text:'待映'
         },
         {
@@ -43,9 +46,13 @@ export default {
           text:'经典电影'
         }
       ],
-      childRoute: 'movie',
-      chooseArea: '深圳'
+      childRoute: 'movie'
     }
+  },
+  computed:{
+    ...mapState({
+      chooseCity: state => state.chooseCity
+    })
   },
   methods: {
     routerChildAction(path){
@@ -56,6 +63,14 @@ export default {
       };
       this.$router.push(path);
       this.childRoute = path;
+    }
+  },
+  watch: {
+    $route: {
+      handler(newVal){
+        this.childRoute = newVal.name;
+      },
+      immediate: true
     }
   }
 }
