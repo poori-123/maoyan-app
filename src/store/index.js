@@ -25,7 +25,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    // movie,
+    movie,
     // classic,
     // willplay,
     cinema,

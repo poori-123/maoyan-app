@@ -20,7 +20,14 @@ const routes = [
       {
         path: 'movie',
         name: 'movie',
-        component: Movie
+        component: Movie,
+        children:[
+          {
+            path: 'mc/:id',
+            name: 'movieCinema',
+            component: () => import(/* webpackChunkName : "movieCinema" */'../components/home/movieCinema.vue')
+          }
+        ]
       },
       {
         path: 'cinema',

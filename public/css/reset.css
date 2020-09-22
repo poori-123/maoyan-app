@@ -38,3 +38,8 @@ body{font:12px "微软雅黑";}
 .pad-ln{padding-left: 0 !important;}
 .pad-rn{padding-right: 0 !important;}
 .oad-bn{padding-bottom: 0 !important;}
+.ellipsis{
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}

@@ -1,6 +1,5 @@
 @font-face {font-family: "iconfont";
-  src: url('iconfont.ttf?t=1600580939012') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-
+  src: url('iconfont.ttf?t=1600749672474') format('truetype'); 
 }
 
 .iconfont {
@@ -9,6 +8,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.iconduihao:before {
+  content: "\e70d";
 }
 
 .iconguanzhu:before {

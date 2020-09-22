@@ -1,6 +1,6 @@
 <template>
   <div class="cinema">
-      <cinema-type/>
+      <cinema-type @choosed="chooseAction" :cinemaType="cinemaType" />
       <scroll-load class="scroll" v-if="loading" @loadMore="getMore" :inLoadMore="isLoadMore">
         <div class="cinema-list" v-html="cinemaList">
 
@@ -27,13 +27,17 @@ export default {
       cinemaList: state => state.cinema.cinemaList,
       chooseCity: state => state.chooseCity,
       loading: state => state.cinema.isinit,
-      isLoadMore: state => state.cinema.isLoadMore
+      isLoadMore: state => state.cinema.isLoadMore,
+      cinemaType: state => state.cinema.cinemaType
     })
   },
   methods:{
     getMore(){
       this.offset += 20;
       this.$store.dispatch('cinema/getMore',{offset: this.offset});
+    },
+    chooseAction(obj){
+      this.$store.dispatch('cinema/chooseCinema',obj);
     }
   },
   watch:{
