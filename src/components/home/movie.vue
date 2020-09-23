@@ -6,9 +6,9 @@
       :inLoadMore="isLoadMore"
       :maxNum="!isMore"
     >
-      <div class="hot-wrap" v-html="hotReputation"></div>
+      <div class="hot-wrap" ref="hotwrap" v-html="hotReputation"></div>
       <div class="movie-list">
-        <div class="movie-list-item" v-for="item in hotMovieList" :key="item.id">
+        <div class="movie-list-item" v-for="item in hotMovieList" :key="item.id" @click="mcAction(item.id)" >
           <div class="image">
             <img :src="item.img" alt="">
           </div>
@@ -28,6 +28,7 @@
         </div>
       </div>
     </scroll-load>
+    <router-view/>
   </div>
 </template>
 
@@ -51,11 +52,42 @@ export default {
   methods:{
     loadMore(){
       this.$store.dispatch('movie/getMoreMovie');
+    },
+    mcAction(id){
+      this.$router.push({
+        name: 'movieCinema',
+        params: {
+          id: id
+        }
+      })
+    },
+  },
+  watch: {
+    hotReputation(newVal){
+      if(newVal){
+        this.$nextTick( ()=>{
+          var _this = this;
+          var hotWrap = this.$refs.hotwrap;
+          var items = hotWrap.querySelectorAll('.top-rated-item');
+          for(let i = 0; i < items.length; i++){
+            items[i].onclick = function(){
+              var id = this.getAttribute('data-id');
+              _this.$router.push({
+                name: 'movieDetail',
+                params: {
+                  id: id
+                }
+              })
+            }
+          }
+        } )
+      }
+      
     }
   },
   created(){
     this.$store.dispatch('movie/getGoodReputation');
-    this.$store.dispatch('movie/getHotMovieList');
+    // this.$store.dispatch('movie/getHotMovieList'); //数据获取不到临时!!!!
   }
 }
 </script>

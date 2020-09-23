@@ -13,7 +13,7 @@
 <script>
 import arrow from '../../assets/arrow.jpg';
 import load from '../../assets/loading.gif';
-import noMore from '../../assets/music.png';
+import noMore from '../../assets/error.jpg';
 export default {
     props: {
         scrollX: {
@@ -21,7 +21,11 @@ export default {
             default: false
         },
         inLoadMore: Boolean,
-        maxNum: Boolean
+        maxNum: {
+            type: Boolean,
+            default: true
+        },
+        reload: Number
     },
     data(){
         return {
@@ -76,14 +80,21 @@ export default {
                 this.pull_up_text = '上拉加载更多...';
             }
         },
-        maxNum(newVal){
-            if(newVal){
-                this.pull_up_img = noMore;
-                this.pull_up_text = '没有更多了...';
-            }else{
-                this.pull_up_img = arrow;
-                this.pull_up_text = '上拉加载更多...';
-            }
+        maxNum: {
+            handler(newVal){
+                if(newVal){
+                    this.pull_up_img = noMore;
+                    this.isTurn = true;
+                    this.pull_up_text = '没有更多了...';
+                }else{
+                    this.pull_up_img = arrow;
+                    this.pull_up_text = '上拉加载更多...';
+                }
+            },
+            immediate: true
+        },
+        reload(){
+            this.scroll.scrollTo(0, 0, 0);
         }
     }
 }
@@ -98,6 +109,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: center;
+        // background: #F5F5F5;
         // border: 2px solid #000;
         img{
             width: 0.3rem;

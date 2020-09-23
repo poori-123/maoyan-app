@@ -11,7 +11,6 @@ export default {
     },
     getters: {
         cityId(s1,g1,s2,g2){
-            console.log(s2.chooseCity.id)
             return s2.chooseCity.id;
         }
     },
@@ -33,8 +32,8 @@ export default {
     },
     actions: {
         async getInit(store){
-            // var { data } = await Http.get(GETCINEMA_TYPE,{ ci: store.getters.cityId });
-            var { data } = await axios.get('/ajax/filterCinemas');
+            var { data } = await Http.get(GETCINEMA_TYPE,{ ci: store.getters.cityId });
+            // var { data } = await axios.get('/ajax/filterCinemas');
 
 
             var date = new Date();

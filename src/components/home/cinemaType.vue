@@ -5,7 +5,7 @@
         <div @click="showAction(2)">{{t2Text}}<span class="iconfont iconarrowdown-copy"></span></div>
         <div @click="showAction(3)">{{t3Text}}<span class="iconfont iconarrowdown-copy"></span></div>
     </div>
-    <div class="type" v-show="ischoose" @click.self="hideAction" v-if="cinemaType" >
+    <div class="type" v-show="ischoose" @click.self="hideAction" v-if="Object.keys(cinemaType).length !== 0" >
         <div class="type-tab">
             <div @click="choose1(1)" :class="{active: type ===1 }">{{t1Text}}<span class="iconfont iconarrowdown-copy"></span></div>
             <div @click="choose1(2)" :class="{active: type ===2 }">{{t2Text}}<span class="iconfont iconarrowdown-copy"></span></div>

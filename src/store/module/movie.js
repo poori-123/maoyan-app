@@ -7,7 +7,7 @@ export default {
         hotReputation: '',
         hotMovieList: [],
         movieIDs:[],
-        isGetTop: false,
+        isGetTop: true, //数据获取不到临时
         isLoadMore: false,
         isMore: true 
     },
@@ -33,6 +33,13 @@ export default {
     actions: {
         async getGoodReputation(store){
             var {data} = await Http.get(GOODREPUTATION_API);
+            // var reg = /data-id=(\d+)/g;
+            // var newDate = data.replace( reg , (str)=>{
+            //     var reg2 = /(\d+)/g;
+            //     reg2.exec(str);
+            //     var id = RegExp.$1;
+            //     return `@click="movieDetail(${id})"`;
+            // } );
             store.commit('setGoodReputation',data);
         },
         async getHotMovieList(store){

@@ -19,4 +19,8 @@ export const GETCITIES_API = '/dianying/cities.json';
 
 export const GETMOVIEDETAIL_API = '/ajax/detailmovie?optimus_uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&optimus_risk_level=71&optimus_code=10'; /* movieId=346210& */
 export const GETMOVIECINEMA_API = '/ajax/movie?forceUpdate=1600767056907'; /* post请求 */
-export const GETFILTER_API = 'https://m.maoyan.com/ajax/filterCinemas?optimus_uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&optimus_risk_level=71&optimus_code=10'; /* movieId=346210&day=2020-09-22& */
+export const GETFILTER_API = '/ajax/filterCinemas?optimus_uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&optimus_risk_level=71&optimus_code=10'; /* movieId=346210&day=2020-09-22& */
+
+export const GETVIDEO_API = '/asgard/asgardapi/sns/common/feed/channel/list.json?uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&channelId=4&timestamp=1600791722968'; /* feedChannelId=1067226&  &offset=15*/
+
+export const GETSMALLVIDEO_API = '/asgard/asgardapi/sns/common/feed/channel/list.json?uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&channelId=4&feedChannelId=105';

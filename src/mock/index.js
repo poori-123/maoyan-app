@@ -7,4 +7,8 @@ mock('/ajax/movieOnInfoList', ()=>{
 
 mock('/ajax/filterCinemas', ()=>{
     return require('./filter.json');
-})
+});
+
+mock('/ajax/moviedetail', ()=>{
+    return require('./movieDetail2.json');
+});

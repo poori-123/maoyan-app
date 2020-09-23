@@ -120,7 +120,7 @@ html{
     }
     .header-menu{
       position: absolute;
-      z-index: 19;
+      z-index: 1999;
       top: 0.46rem;
       right: 0.12rem;
       background: #fff;

@@ -1,5 +1,5 @@
 @font-face {font-family: "iconfont";
-  src: url('iconfont.ttf?t=1600749672474') format('truetype'); 
+  src: url('iconfont.ttf?t=1600859144011') format('truetype'); /* iOS 4.1- */
 }
 
 .iconfont {
@@ -8,6 +8,38 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.iconxia:before {
+  content: "\e791";
+}
+
+.iconxing:before {
+  content: "\e615";
+}
+
+.icontriangle-right:before {
+  content: "\e62c";
+}
+
+.icondianzan:before {
+  content: "\e611";
+}
+
+.iconxinxi:before {
+  content: "\e61d";
+}
+
+.iconicon--:before {
+  content: "\e70e";
+}
+
+.iconleft:before {
+  content: "\e697";
+}
+
+.iconarrow:before {
+  content: "\e63c";
 }
 
 .iconduihao:before {

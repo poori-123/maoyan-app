@@ -6,6 +6,10 @@ import classic from './module/classic';
 import willplay from './module/willplay';
 import cinema from './module/cinema';
 import city from './module/city';
+import movieCinema from './module/movieCinema';
+import movieDetail from './module/movieDetail';
+import video from './module/video';
+import smallVideo from './module/smallVideo';
 
 Vue.use(Vuex)
 
@@ -29,6 +33,10 @@ export default new Vuex.Store({
     // classic,
     // willplay,
     cinema,
-    city
+    city,
+    movieCinema,
+    movieDetail,
+    video,
+    smallVideo
   }
 })

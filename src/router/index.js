@@ -26,6 +26,11 @@ const routes = [
             path: 'mc/:id',
             name: 'movieCinema',
             component: () => import(/* webpackChunkName : "movieCinema" */'../components/home/movieCinema.vue')
+          },
+          {
+            path: 'md/:id',
+            name: 'movieDetail',
+            component: () => import(/* webpackChunkName : "movieDetail" */'../components/home/movieDetail.vue')
           }
         ]
       },
@@ -54,7 +59,14 @@ const routes = [
   {
     path: '/video',
     name: 'video',
-    component: () => import(/* webpackChunkName : "video" */'../views/Video.vue')
+    component: () => import(/* webpackChunkName : "video" */'../views/Video.vue'),
+    children: [
+      {
+        path: 'vd/:query',
+        name: 'videoDetail',
+        component: () => import(/* webpackChunkName : "videoDetail" */'../components/home/videoDetail.vue')
+      }
+    ]
   },
   {
     path: '/smallvideo',
