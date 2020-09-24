@@ -1,4 +1,5 @@
 import Http from '../../api/http';
+import axios from 'axios';
 import {GETCLASSICMOVIE_API} from '../../api/url';
 
 export default {
@@ -23,7 +24,12 @@ export default {
     actions: {
         async getClassicMovie(store,payload){
             store.commit('togIsLoadMore');
-            var {data} = await Http.get(GETCLASSICMOVIE_API,payload);
+            // var {data} = await Http.get(GETCLASSICMOVIE_API,payload);
+
+            /* -------------------------- mock --------------------------------- */
+            var dd = await axios.get('/ajax/classicList');
+            var data = dd.data.default;
+            /* -------------------------- mock --------------------------------- */
             
             var str1 = data.replace(/<a href="\/movie\/\d+">/g, (str)=>{
                 var reg = /(\d+)/;

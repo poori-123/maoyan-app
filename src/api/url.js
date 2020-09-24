@@ -24,3 +24,6 @@ export const GETFILTER_API = '/ajax/filterCinemas?optimus_uuid=CCC26410FBDC11EA9
 export const GETVIDEO_API = '/asgard/asgardapi/sns/common/feed/channel/list.json?uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&channelId=4&timestamp=1600791722968'; /* feedChannelId=1067226&  &offset=15*/
 
 export const GETSMALLVIDEO_API = '/asgard/asgardapi/sns/common/feed/channel/list.json?uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&channelId=4&feedChannelId=105';
+
+export const GETCINEMADETAIL_API = '/ajax/cinemaDetail?optimus_uuid=CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C&optimus_risk_level=71&optimus_code=10'; /* cinemaId=24157& */
+

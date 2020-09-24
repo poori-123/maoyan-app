@@ -1,4 +1,5 @@
 import Http from '../../api/http';
+import axios from 'axios';
 import { GETMOVIEDETAIL_API, GETMOVIECINEMA_API, GETFILTER_API } from '../../api/url';
 export default {
     namespaced: true,
@@ -28,7 +29,12 @@ export default {
     },
     actions: {
         async initMovie(store,payload){
-            var { data:{ detailMovie } } = await Http.get( GETMOVIEDETAIL_API, { movieId: payload } );
+            // var { data:{ detailMovie } } = await Http.get( GETMOVIEDETAIL_API, { movieId: payload } );
+
+            /* -------------------------- mock --------------------------------- */
+            var { data: {detailMovie} } = await axios.get('/ajax/moviedetail');
+            /* -------------------------- mock --------------------------------- */
+
             var data = {
                 backgroundColor: detailMovie.backgroundColor,
                 cat: detailMovie.cat,
@@ -50,24 +56,32 @@ export default {
             store.commit('setMovie',data);
         },
         async initCinema(store,payload){
-            var {data} = await Http.get(GETFILTER_API,{
-                movieId: payload.id,
-                day: payload.date
-            });
+            // var {data} = await Http.get(GETFILTER_API,{
+            //     movieId: payload.id,
+            //     day: payload.date
+            // });
 
-            var {data: { cinemas, showDays: {dates} }} = await Http.post(GETMOVIECINEMA_API,{
-                ...payload.query,
-                movieId: payload.id,
-                day: payload.date,
-                offset: 0,
-                limit: 20,
-                updateShowDay: true,
-                reqId: 1600770457343,
-                cityId: store.getters.cityId,
-                optimus_uuid: 'CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C',
-                optimus_risk_level: 71,
-                optimus_code: 10
-            });
+            /* -------------------------- mock --------------------------------- */
+            var {data} = await axios.get('/ajax/myFilter');
+            /* -------------------------- mock --------------------------------- */
+
+            // var {data: { cinemas, showDays: {dates} }} = await Http.post(GETMOVIECINEMA_API,{
+            //     ...payload.query,
+            //     movieId: payload.id,
+            //     day: payload.date,
+            //     offset: 0,
+            //     limit: 20,
+            //     updateShowDay: true,
+            //     reqId: 1600770457343,
+            //     cityId: store.getters.cityId,
+            //     optimus_uuid: 'CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C',
+            //     optimus_risk_level: 71,
+            //     optimus_code: 10
+            // });
+
+            /* -------------------------- mock --------------------------------- */
+            var {data: { cinemas, showDays: {dates} }} = await axios.get('/ajax/mvCinema');
+            /* -------------------------- mock --------------------------------- */
 
             store.commit('setCinema',{
                 filter: data,
@@ -76,19 +90,24 @@ export default {
             })
         },
         async chooseCinema(store,payload){
-            var {data: { cinemas }} = await Http.post(GETMOVIECINEMA_API,{
-                ...payload.query,
-                movieId: payload.id,
-                day: payload.date,
-                offset: 0,
-                limit: 20,
-                updateShowDay: true,
-                reqId: 1600770457343,
-                cityId: store.getters.cityId,
-                optimus_uuid: 'CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C',
-                optimus_risk_level: 71,
-                optimus_code: 10
-            });
+            // var {data: { cinemas }} = await Http.post(GETMOVIECINEMA_API,{
+            //     ...payload.query,
+            //     movieId: payload.id,
+            //     day: payload.date,
+            //     offset: 0,
+            //     limit: 20,
+            //     updateShowDay: true,
+            //     reqId: 1600770457343,
+            //     cityId: store.getters.cityId,
+            //     optimus_uuid: 'CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C',
+            //     optimus_risk_level: 71,
+            //     optimus_code: 10
+            // });
+
+            /* -------------------------- mock --------------------------------- */
+            var {data: { cinemas }} = await axios.get('/ajax/mvCinema');
+            /* -------------------------- mock --------------------------------- */
+
             store.commit('resetCinema',cinemas);
         }
     }

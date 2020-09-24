@@ -1,4 +1,5 @@
 import Http from '../../api/http';
+import axios from 'axios';
 import { GETEXPECTEDMOVIE_API, GETCOMINEMOVIE_API, GETMORECOMINE_API} from '../../api/url';
 export default {
     namespaced: true,
@@ -53,7 +54,12 @@ export default {
     },
     actions: {
         async getMostExpectedList(store,payload){
-            var { data:{ coming, paging } } = await Http.get(GETEXPECTEDMOVIE_API,{ ...payload, ci: store.getters.cityId });
+            // var { data:{ coming, paging } } = await Http.get(GETEXPECTEDMOVIE_API,{ ...payload, ci: store.getters.cityId });
+
+            /* -------------------------- mock --------------------------------- */
+            var { data:{ coming, paging } } = await axios.get('/ajax/mostExpected');
+            /* -------------------------- mock --------------------------------- */
+
             var datalist = coming.map( item => ({
                 ...item,
                 img: item.img.replace('/w.h','') + '@1l_1e_1c_170w_230h'
@@ -69,7 +75,12 @@ export default {
             }
         },
         async getComingMovieList(store){
-            var { data: {coming,movieIds}  } = await Http.get(GETCOMINEMOVIE_API, { ci: store.getters.cityId });
+            // var { data: {coming,movieIds}  } = await Http.get(GETCOMINEMOVIE_API, { ci: store.getters.cityId });
+
+            /* -------------------------- mock --------------------------------- */
+            var { data: {coming,movieIds}  } = await axios.get('/ajax/comingList');
+            /* -------------------------- mock --------------------------------- */
+
             var list = coming.map( item => ({
                 ...item,
                 img: item.img.replace('/w.h','') + '@1l_1e_1c_170w_230h'
@@ -99,7 +110,12 @@ export default {
             store.commit('togIsLoadMore');
             var arr = store.state.movieIDs.splice(0,10);
             var str = arr.join(',');
-            var { data: {coming} } = await Http.get(GETMORECOMINE_API,{ movieIds: str, ci: store.getters.cityId  });
+            // var { data: {coming} } = await Http.get(GETMORECOMINE_API,{ movieIds: str, ci: store.getters.cityId  });
+
+            /* -------------------------- mock --------------------------------- */
+            var { data: {coming}  } = await axios.get('/ajax/comingList');
+            /* -------------------------- mock --------------------------------- */
+
             var list = coming.map( item => ({
                 ...item,
                 img: item.img.replace('/w.h','') + '@1l_1e_1c_170w_230h'

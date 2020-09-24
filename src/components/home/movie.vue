@@ -87,7 +87,7 @@ export default {
   },
   created(){
     this.$store.dispatch('movie/getGoodReputation');
-    // this.$store.dispatch('movie/getHotMovieList'); //数据获取不到临时!!!!
+    this.$store.dispatch('movie/getHotMovieList');
   }
 }
 </script>

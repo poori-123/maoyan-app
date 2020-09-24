@@ -1,16 +1,18 @@
 <template>
   <div class="cinema">
       <cinema-type @choosed="chooseAction" :cinemaType="cinemaType" />
-      <scroll-load class="scroll" v-if="loading" @loadMore="getMore" :inLoadMore="isLoadMore">
+      <scroll-load class="scroll" v-if="loading" @loadMore="getMore" :inLoadMore="isLoadMore" :maxNum="isMore">
         <div class="cinema-list" v-html="cinemaList">
 
         </div>
       </scroll-load>
+      <router-view/>
   </div>
 </template>
 
 <script>
 import CinemaType from './cinemaType';
+import cinemaDetail from './cinemaDetail';
 import {mapState} from 'vuex';
 export default {
   components: {
@@ -28,7 +30,8 @@ export default {
       chooseCity: state => state.chooseCity,
       loading: state => state.cinema.isinit,
       isLoadMore: state => state.cinema.isLoadMore,
-      cinemaType: state => state.cinema.cinemaType
+      cinemaType: state => state.cinema.cinemaType,
+      isMore:state => state.cinema.isMax
     })
   },
   methods:{
@@ -44,6 +47,24 @@ export default {
     chooseCity(newVal){
       this.$store.dispatch('cinema/getInit');
       this.offset = 0;
+    },
+    cinemaList(newVal){
+      var _this = this;
+      this.$nextTick( ()=>{
+        var items = document.querySelectorAll('.cinema-list-item');
+        for(let i = 0; i < items.length; i++){
+          items[i].onclick = function(){
+            var id = this.getAttribute('cnid');
+            _this.$router.push({
+              name: 'cinemaDetail',
+              params: {
+                id
+              }
+            })
+          }
+        }
+      })
+      
     }
   },
   created(){

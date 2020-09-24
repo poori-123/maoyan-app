@@ -10,6 +10,7 @@ import movieCinema from './module/movieCinema';
 import movieDetail from './module/movieDetail';
 import video from './module/video';
 import smallVideo from './module/smallVideo';
+import cinemaDetail from './module/cinemaDetail';
 
 Vue.use(Vuex)
 
@@ -29,14 +30,15 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    // movie,
-    // classic,
-    // willplay,
-    // cinema,
-    // city,
-    // movieCinema,
-    // movieDetail,
-    // video,
-    smallVideo
+    movie,
+    classic,
+    willplay,
+    cinema,
+    city,
+    movieCinema,
+    movieDetail,
+    video,
+    smallVideo,
+    cinemaDetail
   }
 })

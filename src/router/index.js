@@ -25,73 +25,80 @@ const routes = [
           {
             path: 'mc/:id',
             name: 'movieCinema',
-            component: () => import(/* webpackChunkName : "movieCinema" */'../components/home/movieCinema.vue')
+            component: () => import(/* webpackChunkName:"movieCinema" */ '../components/home/movieCinema.vue')
           },
           {
             path: 'md/:id',
             name: 'movieDetail',
-            component: () => import(/* webpackChunkName : "movieDetail" */'../components/home/movieDetail.vue')
+            component: () => import(/* webpackChunkName:"movieDetail" */ '../components/home/movieDetail.vue')
           }
         ]
       },
       {
         path: 'cinema',
         name: 'cinema',
-        component: () => import(/* webpackChunkName : "cinema" */'../components/home/cinema.vue')
+        component: () => import(/* webpackChunkName:"cinema" */ '../components/home/cinema.vue'),
+        children: [
+          {
+            path: 'cd/:id',
+            name: 'cinemaDetail',
+            component: () => import(/* webpackChunkName:"cinemaDetail" */ '../components/home/cinemaDetail.vue')
+          }
+        ]
       },
       {
         path: 'willplay',
         name: 'willplay',
-        component: () => import(/* webpackChunkName : "willplay" */'../components/home/willplay.vue')
+        component: () => import(/* webpackChunkName:"willplay" */ '../components/home/willplay.vue')
       },
       {
         path: 'classic',
         name: 'classic',
-        component: () => import(/* webpackChunkName : "classic" */'../components/home/classic.vue')
+        component: () => import(/* webpackChunkName:"classic" */ '../components/home/classic.vue')
       },
       {
         path: 'city',
         name: 'city',
-        component: () => import(/* webpackChunkName : "city" */'../components/home/city.vue')
+        component: () => import(/* webpackChunkName:"city" */ '../components/home/city.vue')
       }
     ]
   },
   {
     path: '/video',
     name: 'video',
-    component: () => import(/* webpackChunkName : "video" */'../views/Video.vue'),
+    component: () => import(/* webpackChunkName:"video" */ '../views/Video.vue'),
     children: [
       {
         path: 'vd/:query',
         name: 'videoDetail',
-        component: () => import(/* webpackChunkName : "videoDetail" */'../components/home/videoDetail.vue')
+        component: () => import(/* webpackChunkName:"videoDetail" */ '../components/home/videoDetail.vue')
       }
     ]
   },
   {
     path: '/smallvideo',
     name: 'smallvideo',
-    component: () => import(/* webpackChunkName : "smallvideo" */'../views/SmallVideo.vue')
+    component: () => import(/* webpackChunkName:"smallvideo" */ '../views/SmallVideo.vue')
   },
   {
     path: '/mycenter',
     name: 'mycenter',
-    component: () => import(/* webpackChunkName : "mycenter" */'../views/MyCenter.vue')
+    component: () => import(/* webpackChunkName:"mycenter" */ '../views/MyCenter.vue')
   },
   {
     path: '/rank',
     name: 'rank',
-    component: () => import(/* webpackChunkName : "rank" */'../views/Rank.vue')
+    component: () => import(/* webpackChunkName:"rank" */ '../views/Rank.vue')
   },
   {
     path: '/hot',
     name: 'hot',
-    component: () => import(/* webpackChunkName : "hot" */'../views/Hot.vue')
+    component: () => import(/* webpackChunkName:"hot" */ '../views/Hot.vue')
   },
   {
     path: '/shop',
     name: 'shop',
-    component: () => import(/* webpackChunkName : "shop" */'../views/Shop.vue')
+    component: () => import(/* webpackChunkName:"shop" */ '../views/Shop.vue')
   }
 ]
 

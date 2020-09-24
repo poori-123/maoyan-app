@@ -7,7 +7,8 @@ export default {
         cinemaType: {},
         cinemaList: '',
         isinit: false,
-        isLoadMore: false
+        isLoadMore: false,
+        isMax: false
     },
     getters: {
         cityId(s1,g1,s2,g2){
@@ -32,9 +33,11 @@ export default {
     },
     actions: {
         async getInit(store){
-            var { data } = await Http.get(GETCINEMA_TYPE,{ ci: store.getters.cityId });
-            // var { data } = await axios.get('/ajax/filterCinemas');
+            // var { data } = await Http.get(GETCINEMA_TYPE,{ ci: store.getters.cityId });
 
+            /* -------------------------- mock --------------------------------- */
+            var { data } = await axios.get('/ajax/filterCinemas');
+            /* -------------------------- mock --------------------------------- */
 
             var date = new Date();
             var y = date.getFullYear();
@@ -47,12 +50,19 @@ export default {
                 d = '0' + d;
             }
             var datestr = y + '-' + m + '-' + d;
-            var data2 = await Http.get(GETCINEMA_API, { 
-                cityId: store.getters.cityId ,
-                day: datestr
-            });
 
-            var str1 = data2.data;
+            // var data2 = await Http.get(GETCINEMA_API, { 
+            //     cityId: store.getters.cityId ,
+            //     day: datestr
+            // });
+            // var str1 = data2.data;
+
+            /* -------------------------- mock --------------------------------- */
+            var data3 = await axios.get('/ajax/cinemas');
+            var str1  = data3.data.default;
+            /* -------------------------- mock --------------------------------- */
+
+            
             var str2 = str1.replace(/<a href="\/shows\/\d+">/g, (str)=>{
                 var reg = /(\d+)/;
                 reg.test(str);
@@ -77,11 +87,17 @@ export default {
                 d = '0' + d;
             }
             var datestr = y + '-' + m + '-' + d;
-            var {data} = await Http.get(GETCINEMA_API, { 
-                cityId: store.getters.cityId ,
-                day: datestr,
-                ...payload
-            });
+            // var {data} = await Http.get(GETCINEMA_API, { 
+            //     cityId: store.getters.cityId ,
+            //     day: datestr,
+            //     ...payload
+            // });
+
+            /* -------------------------- mock --------------------------------- */
+            var data3 = await axios.get('/ajax/cinemas');
+            var data = data3.data.default;
+            /* -------------------------- mock --------------------------------- */
+
             var str1 = data.replace(/<a href="\/shows\/\d+">/g, (str)=>{
                 var reg = /(\d+)/;
                 reg.test(str);
@@ -103,11 +119,17 @@ export default {
                 d = '0' + d;
             }
             var datestr = y + '-' + m + '-' + d;
-            var {data} = await Http.get(GETCINEMA_API, { 
-                cityId: store.getters.cityId ,
-                day: datestr,
-                ...payload
-            });
+            // var {data} = await Http.get(GETCINEMA_API, { 
+            //     cityId: store.getters.cityId ,
+            //     day: datestr,
+            //     ...payload
+            // });
+
+            /* -------------------------- mock --------------------------------- */
+            var data3 = await axios.get('/ajax/cinemas');
+            var data = data3.data.default;
+            /* -------------------------- mock --------------------------------- */
+
             var str1 = data.replace(/<a href="\/shows\/\d+">/g, (str)=>{
                 var reg = /(\d+)/;
                 reg.test(str);
