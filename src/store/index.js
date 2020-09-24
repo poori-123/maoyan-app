@@ -29,14 +29,14 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
-    movie,
+    // movie,
     // classic,
     // willplay,
-    cinema,
-    city,
-    movieCinema,
-    movieDetail,
-    video,
+    // cinema,
+    // city,
+    // movieCinema,
+    // movieDetail,
+    // video,
     smallVideo
   }
 })

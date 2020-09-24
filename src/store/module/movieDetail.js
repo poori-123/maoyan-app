@@ -15,7 +15,7 @@ export default {
     },
     actions: {
         async getMovieDetail(store,payload){
-            // var data = await Http.get(GETMOVIEDETAIL_API,{movieId:payload});
+            // var { data: {detailMovie} } = await Http.get(GETMOVIEDETAIL_API,{movieId:payload});
             var { data: {detailMovie} } = await axios.get('/ajax/moviedetail');
             var detail = {
                 backgroundColor: detailMovie.backgroundColor,

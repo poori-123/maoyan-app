@@ -1,6 +1,12 @@
 <template>
   <div class="page" id="smallvideo">
-    <scroll-load class="scroll">
+    <scroll-load 
+      class="scroll" 
+      v-if="loading" 
+      :inLoadMore="isLoadMore"
+      :maxNum="isMax"
+      @loadMore="loadMore"
+    >
       <ul>
         <li v-for="item in videoList" :key="item.id" :style="{'background-image':'url(' +item.images[0].url+')'}" >
           <h3>{{item.title}}</h3>
@@ -22,10 +28,25 @@
 <script>
 import {mapState} from 'vuex';
 export default {
+  data(){
+    return {
+      handleLoading:true,
+      offset: 0,
+    }
+  },
   computed: {
     ...mapState({
-      videoList: state => state.smallVideo.videoList
+      videoList: state => state.smallVideo.videoList,
+      loading: state => state.smallVideo.loading,
+      isLoadMore: state => state.smallVideo.isLoadMore,
+      isMax: state =>state.smallVideo.isMax
     })
+  },
+  methods: {
+    loadMore(){
+      this.offset += 10;
+      this.$store.dispatch('smallVideo/getMore',this.offset);
+    }
   },
   created(){
     this.$store.dispatch('smallVideo/getInit');
@@ -91,6 +112,7 @@ export default {
               line-height: 0.215rem;
               &::before{
                 margin-right: 0.05rem;
+                font-size: 0.16rem;
               }
               font-size: 0.14rem;
             }
