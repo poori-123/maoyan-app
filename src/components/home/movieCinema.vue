@@ -1,7 +1,7 @@
 <template>
   <div class="mv-cinema">
     <div class="tit">
-      <span class="iconfont iconleft" @click.stop="$router.back()" ></span>
+      <span class="iconfont iconleft" @click="$router.back()" ></span>
       <h3>{{movieDetail.nm}}</h3>
     </div>
     <div class="movieDetail">
@@ -27,7 +27,7 @@
           <h6 class="ellipsis">{{movieDetail.src}}/{{movieDetail.dur}}分钟</h6>
           <p class="ellipsis">{{movieDetail.pubDesc}}</p>
         </div>
-        <div class="btn"><span class="iconfont iconarrow"></span></div>
+        <div class="btn"><span @click="pushAction" class="iconfont iconarrow"></span></div>
       </div>
       
     </div>
@@ -149,6 +149,9 @@ export default {
         date: this.date,
         query: this.query
       })
+    },
+    pushAction(){
+      this.$emit('pushMovieDetail',this.movieDetail.id)
     }
   },
   created(){
@@ -185,6 +188,9 @@ export default {
           query: this.query
         });
       }
+    },
+    dates(newVal){
+      this.date = newVal[0].date;
     }
   }
 }

@@ -55,12 +55,7 @@ export default {
         for(let i = 0; i < items.length; i++){
           items[i].onclick = function(){
             var id = this.getAttribute('cnid');
-            _this.$router.push({
-              name: 'cinemaDetail',
-              params: {
-                id
-              }
-            })
+            _this.$emit('pushCinemaDetail',id)
           }
         }
       })

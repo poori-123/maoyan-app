@@ -132,6 +132,7 @@ export default {
         buyAction(){
             var id = this.$route.params.id;
             console.log(id) //传给父组件转向moviecinema路由
+            this.$emit('pushCinemaDetail',id)
         }
     },
     created(){

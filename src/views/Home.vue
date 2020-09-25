@@ -18,7 +18,12 @@
       </div>
     </div>
     <keep-alive>
-      <router-view class="subpage" />
+      <router-view 
+        @pushMovieDetail="pushMovieAction" 
+        @pushMovieCinema="pushMcAction"
+        @pushCinemaDetail="pushCdAction"
+        class="subpage" 
+      />
     </keep-alive>
   </div>
 </template>
@@ -63,6 +68,31 @@ export default {
       };
       this.$router.push(path);
       this.childRoute = path;
+    },
+    pushMovieAction(id){
+      this.$router.push({
+        name: 'movieDetail',
+        params: {
+          id
+        }
+      })
+    },
+    pushMcAction(id){
+      this.$router.push({
+        name: 'movieCinema',
+        params: {
+          id
+        }
+      })
+    },
+    pushCdAction(id){
+      console.log(id);
+      this.$router.push({
+        name: 'cinemaDetail',
+        params: {
+          id
+        }
+      })
     }
   },
   watch: {
@@ -151,12 +181,12 @@ export default {
       }
     }
   }
-  .subpage{
-    position: absolute;
-    top: 0.45rem;
-    bottom: 0;
-    width: 100%;
-    background: #F5F5F5;
-  }
+}
+.subpage{
+  position: absolute;
+  top: 0.45rem;
+  bottom: 0;
+  width: 100%;
+  background: #F5F5F5;
 }
 </style>

@@ -20,31 +20,12 @@ const routes = [
       {
         path: 'movie',
         name: 'movie',
-        component: Movie,
-        children:[
-          {
-            path: 'mc/:id',
-            name: 'movieCinema',
-            component: () => import(/* webpackChunkName:"movieCinema" */ '../components/home/movieCinema.vue')
-          },
-          {
-            path: 'md/:id',
-            name: 'movieDetail',
-            component: () => import(/* webpackChunkName:"movieDetail" */ '../components/home/movieDetail.vue')
-          }
-        ]
+        component: Movie
       },
       {
         path: 'cinema',
         name: 'cinema',
         component: () => import(/* webpackChunkName:"cinema" */ '../components/home/cinema.vue'),
-        children: [
-          {
-            path: 'cd/:id',
-            name: 'cinemaDetail',
-            component: () => import(/* webpackChunkName:"cinemaDetail" */ '../components/home/cinemaDetail.vue')
-          }
-        ]
       },
       {
         path: 'willplay',
@@ -60,6 +41,21 @@ const routes = [
         path: 'city',
         name: 'city',
         component: () => import(/* webpackChunkName:"city" */ '../components/home/city.vue')
+      },
+      {
+        path: 'md/:id',
+        name: 'movieDetail',
+        component: () => import(/* webpackChunkName:"movieDetail" */ '../components/home/movieDetail.vue')
+      },
+      {
+        path: 'mc/:id',
+        name: 'movieCinema',
+        component: () => import(/* webpackChunkName:"movieCinema" */ '../components/home/movieCinema.vue')
+      },
+      {
+        path: 'cd/:id',
+        name: 'cinemaDetail',
+        component: () => import(/* webpackChunkName:"cinemaDetail" */ '../components/home/cinemaDetail.vue')
       }
     ]
   },

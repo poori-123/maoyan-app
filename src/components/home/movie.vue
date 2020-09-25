@@ -54,12 +54,7 @@ export default {
       this.$store.dispatch('movie/getMoreMovie');
     },
     mcAction(id){
-      this.$router.push({
-        name: 'movieCinema',
-        params: {
-          id: id
-        }
-      })
+      this.$emit('pushMovieCinema',id)
     },
   },
   watch: {
@@ -72,12 +67,7 @@ export default {
           for(let i = 0; i < items.length; i++){
             items[i].onclick = function(){
               var id = this.getAttribute('data-id');
-              _this.$router.push({
-                name: 'movieDetail',
-                params: {
-                  id: id
-                }
-              })
+              _this.$emit('pushMovieDetail',id);
             }
           }
         } )

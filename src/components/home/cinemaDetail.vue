@@ -7,7 +7,7 @@
       <app-scroll class="scroll" v-if="loading">
           <div class="cin-info">
               <div class="top ellipsis">
-                  <span>猫眼电影</span>
+                  <span @click.stop="$router.back()">猫眼电影</span>
                   <span> > {{cinemaData.nm}}</span>
               </div>
               <div class="pos">
