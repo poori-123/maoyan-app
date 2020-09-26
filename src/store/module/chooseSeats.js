@@ -51,9 +51,6 @@ export default {
                 selectedImages: seatData.seat.image.selectedImages
             };
             var seatArr = seatData.seat.regions[0];
-            console.log(data)
-            console.log(seatImage)
-            console.log(seatArr)
             store.commit('setSeats',{
                 data,
                 seatImage,

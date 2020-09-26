@@ -17,7 +17,7 @@
         <span class="iconfont iconsearch"></span>
       </div>
     </div>
-    <keep-alive>
+    <!-- <keep-alive> -->
       <router-view 
         @pushMovieDetail="pushMovieAction" 
         @pushMovieCinema="pushMcAction"
@@ -25,7 +25,7 @@
         @pushChooseSeats="pushCSAction"
         class="subpage" 
       />
-    </keep-alive>
+    <!-- </keep-alive> -->
   </div>
 </template>
 
@@ -110,6 +110,22 @@ export default {
       },
       immediate: true
     }
+  },
+  created(){
+    var userlist = localStorage.getItem('userList');
+    if(!userlist){
+      var arr = [
+        {
+          name: 'xiaowang',
+          psd: '123456',
+        },
+        {
+          name: 'xiaohong',
+          psd: '123456'
+        }
+      ];
+      localStorage.setItem('userList' , JSON.stringify(arr)) ;
+    };
   }
 }
 </script>

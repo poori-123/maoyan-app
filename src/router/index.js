@@ -60,7 +60,14 @@ const routes = [
       {
         path: 'cs/:no',
         name: 'chooseSeats',
-        component: () => import(/* webpackChunkName:"chooseSeats" */ '../components/home/chooseSeats.vue')
+        component: () => import(/* webpackChunkName:"chooseSeats" */ '../components/home/chooseSeats.vue'),
+        children: [
+          {
+            path: ':query',
+            name: 'surebuy',
+            component: () => import(/* webpackChunkName:"surebuy" */ '../components/surebuy/surebuy.vue'),
+          }
+        ]
       }
     ]
   },
@@ -84,7 +91,14 @@ const routes = [
   {
     path: '/mycenter',
     name: 'mycenter',
-    component: () => import(/* webpackChunkName:"mycenter" */ '../views/MyCenter.vue')
+    component: () => import(/* webpackChunkName:"mycenter" */ '../views/MyCenter.vue'),
+    children: [
+      {
+        path: 'order',
+        name: 'order',
+        component: () => import(/* webpackChunkName:"order" */ '../components/login/order.vue'),
+      }
+    ]
   },
   {
     path: '/rank',
