@@ -129,8 +129,8 @@ export default {
     },
     mounted(){
         this.scroll = new IScroll(this.$refs.scroll,{
-            click: true,
-            tap: true,
+            click: false,
+            tap: false,
             probeType: 3,
         });
         this.scroll.on('beforeScrollStart' , () => {

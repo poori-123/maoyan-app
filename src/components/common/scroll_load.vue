@@ -36,8 +36,8 @@ export default {
     },
     mounted(){
         this.scroll = new IScroll(this.$refs.scroll_box,{
-            click: true,
-            tap: true,
+            click: false,
+            tap: false,
             probeType: 3,
             scrollX: this.scrollX,
             scrollY: !this.scrollX

@@ -24,8 +24,9 @@
                     <div class="bgimg" :style="{'background-image': 'url(' + moviesList[mvActive].img  + ')' }" ></div>   
                     <div class="filter"></div>                   
                   </div>
-                  <app-scroll class="cinema-scroll" :scrollX="true" >
-                      <ul>
+                  <div class="cinema-scroll" ref="cinemaScroll">
+                    <ul>
+                        <div class="left"></div>
                         <li 
                             v-for="(item,index) in moviesList" 
                             :key="item.id" 
@@ -34,8 +35,9 @@
                         >
                             <img :src="item.img" alt="">
                         </li>
-                      </ul>
-                  </app-scroll>
+                        <div class="right"></div>
+                    </ul>
+                  </div>
               </div>
               <div class="movie-plays">
                   <div class="nm">
@@ -62,7 +64,7 @@
                         <img :src="cdp" alt="">
                         <h3>今日场次已映完</h3>
                         <h4 @click="tomoAction" v-if="moviesList[mvActive].shows[dayActive+1]">点击查看{{moviesList[mvActive].shows[dayActive+1].dateShow}}场次</h4>
-                        <h4 v-if="!moviesList[mvActive].shows[dayActive+1]">影片未上映</h4>
+                        <h4 v-if="!moviesList[mvActive].shows[dayActive+1]">无近期场次</h4>
                     </div>
                     <li 
                         v-for="item in moviesList[mvActive].shows[dayActive].plist" 
@@ -145,9 +147,50 @@ export default {
         },
         buyAction(str){
             console.log(str)
+            this.$emit('pushChooseSeats',str);
         },
         tomoAction(){
             this.dayActive ++;
+        }
+    },
+    watch: {
+        moviesList(newVal){
+            if(newVal){
+                this.$nextTick( ()=>{
+                    this.scroll = new IScroll(this.$refs.cinemaScroll,{
+                        click: false,
+                        tap: false,
+                        probeType: 3,
+                        scrollX: true,
+                        scrollY: false,
+                    });
+                    this.scroll.on('beforeScrollStart' , () => {
+                        this.scroll.refresh();
+                    });
+                    var lis = this.$refs.cinemaScroll.querySelectorAll('li');
+                    this.width = lis[0].offsetWidth;
+                    this.scroll.on('scrollEnd', ()=>{
+                        var n = Math.floor(-this.scroll.x/160) ;
+                        this.mvActive = n;
+                    })
+
+                    // this.$refs.cinemaScroll.addEventListener('touchend',()=>{
+                    //     var n = Math.floor(-this.scroll.x/160) ;
+                    //     if(n < 0){
+                    //         n = 0;
+                    //     }
+                    //     if(n > lis.length-1){
+                    //         n = lis.length-1
+                    //     }
+                    //     this.mvActive = n;
+                    //     console.log(n)
+                    //     this.scroll.scrollTo(-this.width*n,0,300);
+                    // })
+                })
+            }
+        },
+        mvActive(newVal){
+            this.scroll.scrollTo(-this.width*newVal,0,300);
         }
     },
     created(){
@@ -158,12 +201,6 @@ export default {
 
 <style lang="scss">
 .cinemaDetail{
-    .cinema-scroll{
-        .scroll-wrap{
-            width: max-content;
-            overflow: visible;
-        }
-    }
     .day-scroll{
         .scroll-wrap{
             width: max-content;
@@ -290,29 +327,37 @@ export default {
                     height: 100%;
                     padding: 0.2rem 0;
                     ul{
+                        height: 100%;
                         display: flex;
                         width: max-content;
+                        .left,.right{
+                            width: 1.475rem;
+                            height: 100%;
+                        }
                         li{
-                            width: 0.65rem;
+                            width: 0.8rem;
                             height: 0.95rem;
-                            margin: 0 0.07rem;
+                            padding-left: 0.07rem;
+                            padding-right: 0.08rem;
                             position: relative;
+                            transition: all 300ms;
                             img{
                                 width: 100%;
                                 height: 100%;
                             }
                             &.active{
                                 transform: scale(1.2);
-                                border: 0.02rem solid #fff;
+                                img{
+                                   border: 0.02rem solid #fff; 
+                                }
                                 &::after{
                                     content: '';
                                     position: absolute;
-                                    border: 0.07rem solid transparent;
+                                    border: 0.05rem solid transparent;
                                     border-top-color: #fff;
                                     left: 50%;
                                     bottom: 0;
                                     transform: translate(-50%,100%);
-
                                 }
                             }
                         }

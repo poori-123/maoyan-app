@@ -11,6 +11,7 @@ import movieDetail from './module/movieDetail';
 import video from './module/video';
 import smallVideo from './module/smallVideo';
 import cinemaDetail from './module/cinemaDetail';
+import chooseSeats from './module/chooseSeats';
 
 Vue.use(Vuex)
 
@@ -39,6 +40,7 @@ export default new Vuex.Store({
     movieDetail,
     video,
     smallVideo,
-    cinemaDetail
+    cinemaDetail,
+    chooseSeats
   }
 })

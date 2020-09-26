@@ -22,6 +22,7 @@
         @pushMovieDetail="pushMovieAction" 
         @pushMovieCinema="pushMcAction"
         @pushCinemaDetail="pushCdAction"
+        @pushChooseSeats="pushCSAction"
         class="subpage" 
       />
     </keep-alive>
@@ -86,11 +87,18 @@ export default {
       })
     },
     pushCdAction(id){
-      console.log(id);
       this.$router.push({
         name: 'cinemaDetail',
         params: {
           id
+        }
+      })
+    },
+    pushCSAction(no){
+      this.$router.push({
+        name: 'chooseSeats',
+        params: {
+          no
         }
       })
     }

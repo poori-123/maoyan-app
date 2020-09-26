@@ -46,7 +46,7 @@
     <cinema-type :cinemaType="filter" @choosed="choosedAction" />
     <scroll-load class="scroll-load" >
       <div class="cinemas">
-        <div class="cinemas-item" v-for="item in cinemaList" :key="item.id">
+        <div class="cinemas-item" v-for="item in cinemaList" :key="item.id" @click="$emit('pushCinemaDetail',item.id)" >
           <h2 class="ellipsis">{{item.nm}}
             <span>{{item.sellPrice}}<i>元起</i></span>
           </h2>

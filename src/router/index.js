@@ -56,6 +56,11 @@ const routes = [
         path: 'cd/:id',
         name: 'cinemaDetail',
         component: () => import(/* webpackChunkName:"cinemaDetail" */ '../components/home/cinemaDetail.vue')
+      },
+      {
+        path: 'cs/:no',
+        name: 'chooseSeats',
+        component: () => import(/* webpackChunkName:"chooseSeats" */ '../components/home/chooseSeats.vue')
       }
     ]
   },

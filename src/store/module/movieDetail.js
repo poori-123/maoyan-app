@@ -51,7 +51,7 @@ export default {
                 vnum: detailMovie.vnum,
                 watched: detailMovie.watched,
                 wish: detailMovie.wish
-            }; 
+            };
             store.commit('setMovieDetail',detail);
         }
     }

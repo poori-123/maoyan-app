@@ -44,3 +44,7 @@ mock('/ajax/cities', ()=>{
 mock('/ajax/cinemaDetail', ()=>{
     return require('./cinemaDetail.json');
 });
+
+mock('/ajax/chooseSeats', ()=>{
+    return require('./seat.json');
+});

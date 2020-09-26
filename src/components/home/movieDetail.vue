@@ -28,12 +28,12 @@
                     <img :src="logo" alt="">
                     <span>事实口碑</span>
                 </div>
-                <div class="right">
+                <div class="right" v-if="movieDetail.globalReleased" >
                     <span>{{movieDetail.wish}}想看</span>
                     <span>{{movieDetail.watched}}看过</span>
                 </div>
             </div>
-            <div class="bot">
+            <div class="bot" v-if="movieDetail.globalReleased">
                 <div class="left">
                     <span class="num">{{movieDetail.sc}}</span>
                     <span class="peop">{{movieDetail.snum}}人评</span>
@@ -48,6 +48,9 @@
                     </div>
                 </div>
             </div>
+            <div class="bot" v-if="!movieDetail.globalReleased">
+                <h3><span>{{movieDetail.wish | peopleNumT }}</span>人想看</h3>
+            </div>  
         </div>
         <div class="intro">
             <div class="title">
@@ -114,6 +117,23 @@
 import {mapState} from 'vuex';
 import logo from '../../assets/logo.png';
 export default {
+    filters: {
+        peopleNumT: (num)=>{
+            console.log(num)
+            if(num >= 1000000){
+                var a = Math.floor(num / 1000000);
+                var b = Math.floor((num - b*1000000)/1000);
+                var c = num % 1000;
+                return a + ',' + b + ',' + c;
+            }else if( num >= 1000 ){
+                var b = Math.floor(num/1000);
+                var c = num % 1000;
+                return  b + ',' + c;
+            }else{
+                return num;
+            }
+        }
+    },
     data(){
         return {    
             logo,
@@ -131,7 +151,6 @@ export default {
         },
         buyAction(){
             var id = this.$route.params.id;
-            console.log(id) //传给父组件转向moviecinema路由
             this.$emit('pushCinemaDetail',id)
         }
     },
@@ -278,7 +297,7 @@ export default {
                     }
                 }
                 .right{
-                    font-size: 0.1rem;
+                    font-size: 0.12rem;
                     color: #fff;
                     opacity: 0.6;
                     span{
@@ -322,7 +341,7 @@ export default {
                         color: #ffb400;
                     }
                     .peop{
-                        font-size: 0.1rem;
+                        font-size: 0.12rem;
                         height: 0.18rem;
                         line-height: 0.18rem;
                         color: #fff;
@@ -345,7 +364,7 @@ export default {
                             height: 0.05rem;
                             display: flex;
                             justify-content: space-between;
-                            color: #fff;
+                            color: #ccc;
                             opacity: 0.6;
                             span{
                                 font-size: 0.15rem;
@@ -374,7 +393,7 @@ export default {
                             height: 0.18rem;
                             line-height: 0.18rem;
                             font-size: 0.12rem;
-                            color: #fff;
+                            color: #ccc;
                             opacity: 0.6;
                         }
                         &:nth-child(2){
@@ -405,6 +424,22 @@ export default {
                         }
                     }
                     
+                }
+                h3{
+                    padding: 0.2rem 0;
+                    font-size: 0.22rem;
+                    height: 0.8rem;
+                    line-height: 0.4rem;
+                    color: #fff;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    span{
+                        line-height: 0.4rem;
+                        font-size: 0.28rem;
+                        color: #ffbb29;
+                        margin-right: 0.05rem;
+                    }
                 }
             }
         }
