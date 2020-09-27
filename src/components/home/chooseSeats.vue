@@ -112,13 +112,11 @@ export default {
             this.isShow = !this.isShow;
         },
         delAction(index){
-            var r = this.chooseSeat[index].row;
-            var c = this.chooseSeat[index].col;
-            var row = this.$refs.rows[r - 1]
-            var lis = row.querySelectorAll('li')
-            var col = lis[lis.length-c].querySelector('div');
-            col.setAttribute('flag',0);
-            col.style.backgroundImage = 'url(' + this.seatImg.seatLegends[0].legendIcon + ')';
+
+            var tar = this.chooseSeat[index].li;
+
+            tar.setAttribute('flag',0);
+            tar.style.backgroundImage = 'url(' + this.seatImg.seatLegends[0].legendIcon + ')';
 
             this.chooseSeat.splice(index,1);
         },
@@ -154,7 +152,8 @@ export default {
                         row: r,
                         col: c,
                         id: id,
-                        pri: this.baseInfo.price
+                        pri: this.baseInfo.price,
+                        li: tar
                     };
                     this.chooseSeat.push(obj)
                 }

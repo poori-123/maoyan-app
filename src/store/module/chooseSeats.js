@@ -24,7 +24,7 @@ export default {
     },
     actions: {
         async getSeats(store,payload){
-            var data = await Http.post(GETSEATS_API,{
+            var {data:{seatData} } = await Http.post(GETSEATS_API,{
                 timestamp: Date.now(),
                 cityId: store.getters.cityId,
                 ci: store.getters.cityId,

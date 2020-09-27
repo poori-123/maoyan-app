@@ -121,7 +121,7 @@ export default {
         peopleNumT: (num)=>{
             if(num >= 1000000){
                 var a = Math.floor(num / 1000000);
-                var b = Math.floor((num - b*1000000)/1000);
+                var b = Math.floor((num - a*1000000)/1000);
                 var c = num % 1000;
                 return a + ',' + b + ',' + c;
             }else if( num >= 1000 ){
@@ -150,7 +150,7 @@ export default {
         },
         buyAction(){
             var id = this.$route.params.id;
-            this.$emit('pushCinemaDetail',id)
+            this.$emit('pushMovieCinema',id)
         }
     },
     created(){

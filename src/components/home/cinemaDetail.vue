@@ -43,7 +43,8 @@
                   <div class="nm">
                       <h3>
                           <span>{{moviesList[mvActive].nm}}</span>
-                          <i>{{moviesList[mvActive].sc}}<b>分</b></i>
+                          <i v-if="moviesList[mvActive].globalReleased" >{{moviesList[mvActive].sc}}<b>分</b></i>
+                          <i v-if="!moviesList[mvActive].globalReleased" >{{moviesList[mvActive].wish}}<b>人想看</b></i>
                       </h3>
                       <h4>{{moviesList[mvActive].desc}}</h4>
                   </div>

@@ -25,7 +25,7 @@ export default {
             /* -------------------------- mock --------------------------------- */
             // var { data: { cinemaData, showData } } = await axios.get('/ajax/cinemaDetail');
             /* -------------------------- mock --------------------------------- */
-
+            
             var movies = showData.movies;
             movies = movies.map( item => ({
                 ...item,
