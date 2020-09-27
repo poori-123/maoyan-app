@@ -99,7 +99,7 @@ export default {
                 var arr = [obj];
                 localStorage.setItem('orederList',JSON.stringify(arr));
             }else{
-                var n = orederList.findIndex( item => item.name == user.name );
+                var n = orederList.findIndex( item => item.user == user.name );
                 if(n == -1){
                     var obj = {
                         user: user.name,
