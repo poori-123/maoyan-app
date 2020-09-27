@@ -15,10 +15,10 @@ export default {
     },
     actions: {
         async getMovieDetail(store,payload){
-            // var { data: {detailMovie} } = await Http.get(GETMOVIEDETAIL_API,{movieId:payload});
+            var { data: {detailMovie} } = await Http.get(GETMOVIEDETAIL_API,{movieId:payload});
 
             /* -------------------------- mock --------------------------------- */
-            var { data: {detailMovie} } = await axios.get('/ajax/moviedetail');
+            // var { data: {detailMovie} } = await axios.get('/ajax/moviedetail');
             /* -------------------------- mock --------------------------------- */
 
             var detail = {

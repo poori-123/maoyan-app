@@ -32,11 +32,11 @@ export default {
     },
     actions: {
         async getGoodReputation(store){
-            // var {data} = await Http.get(GOODREPUTATION_API);
+            var {data} = await Http.get(GOODREPUTATION_API);
 
             /* -------------------------- mock --------------------------------- */
-            var res = await axios.get('/ajax/toprated');
-            var data = res.data.default;
+            // var res = await axios.get('/ajax/toprated');
+            // var data = res.data.default;
             /* -------------------------- mock --------------------------------- */
 
             // var reg = /data-id=(\d+)/g;
@@ -49,10 +49,10 @@ export default {
             store.commit('setGoodReputation',data);
         },
         async getHotMovieList(store){
-            // var { data : { movieIds , movieList } } = await Http.get(TOPRATED_API);
+            var { data : { movieIds , movieList } } = await Http.get(TOPRATED_API);
 
             /* -------------------------- mock --------------------------------- */
-            var { data : { movieIds , movieList } } = await axios.get('/ajax/movieOnInfoList');
+            // var { data : { movieIds , movieList } } = await axios.get('/ajax/movieOnInfoList');
             /* ----------------------------------------------------------------- */
 
             var list = movieList.map( item => ({
@@ -74,11 +74,11 @@ export default {
             store.commit('togIsLoadMore');
             var arr = store.state.movieIDs.splice(0,10);
             var str = arr.join(',');
-            // var { data: {coming} } = await Http.get(GETMORE_API,{ movieIds: str });
+            var { data: {coming} } = await Http.get(GETMORE_API,{ movieIds: str });
 
             /* -------------------------- mock --------------------------------- */
-            var { data : { movieList } } = await axios.get('/ajax/movieOnInfoList');
-            var coming = movieList;
+            // var { data : { movieList } } = await axios.get('/ajax/movieOnInfoList');
+            // var coming = movieList;
             /* ----------------------------------------------------------------- */
 
             var list = coming.map( item => ({

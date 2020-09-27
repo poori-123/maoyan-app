@@ -24,18 +24,18 @@ export default {
     },
     actions: {
         async getSeats(store,payload){
-            // var data = await Http.post(GETSEATS_API,{
-            //     timestamp: Date.now(),
-            //     cityId: store.getters.cityId,
-            //     ci: store.getters.cityId,
-            //     seqNo: payload,
-            //     optimus_uuid: 'CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C',
-            //     optimus_risk_level: 71,
-            //     optimus_code: 10
-            // });
+            var data = await Http.post(GETSEATS_API,{
+                timestamp: Date.now(),
+                cityId: store.getters.cityId,
+                ci: store.getters.cityId,
+                seqNo: payload,
+                optimus_uuid: 'CCC26410FBDC11EA9A7CE3A05A716C497D2DBA55BF63435AB9FB2BE848032E9C',
+                optimus_risk_level: 71,
+                optimus_code: 10
+            });
 
             /* -------------------------- mock --------------------------------- */
-            var {data:{seatData} } = await axios.get('/ajax/chooseSeats');
+            // var {data:{seatData} } = await axios.get('/ajax/chooseSeats');
             /* -------------------------- mock --------------------------------- */
             
             var data = {

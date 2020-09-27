@@ -35,10 +35,10 @@ export default {
     },
     actions: {
         async getCities(store){
-            // var { data: {cts} } = await Http.get(GETCITIES_API);
+            var { data: {cts} } = await Http.get(GETCITIES_API);
 
             /* -------------------------- mock --------------------------------- */
-            var { data: {cts} } = await axios.get('/ajax/cities');
+            // var { data: {cts} } = await axios.get('/ajax/cities');
             /* -------------------------- mock --------------------------------- */
             
             var data = {};

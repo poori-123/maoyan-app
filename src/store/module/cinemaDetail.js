@@ -18,12 +18,12 @@ export default {
     },
     actions: {
         async initDetail(store,payload){
-            // var { data: { cinemaData, showData } } = await Http.get(GETCINEMADETAIL_API,{
-            //     cinemaId: payload
-            // });
+            var { data: { cinemaData, showData } } = await Http.get(GETCINEMADETAIL_API,{
+                cinemaId: payload
+            });
 
             /* -------------------------- mock --------------------------------- */
-            var { data: { cinemaData, showData } } = await axios.get('/ajax/cinemaDetail');
+            // var { data: { cinemaData, showData } } = await axios.get('/ajax/cinemaDetail');
             /* -------------------------- mock --------------------------------- */
 
             var movies = showData.movies;
