@@ -35,7 +35,6 @@ export default {
                 user: item.user,
                 video: item.video
             }) );
-            console.log(list)
             store.commit('setInit',list);
         },
         async getMore(store,payload){

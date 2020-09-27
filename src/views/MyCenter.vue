@@ -2,7 +2,7 @@
   <div class="page" id="mycenter">
     <div v-show="islogin">
       <div class="tit">
-        <span></span>
+        <span @click="leaveAction">登出</span>
         <h1>我的</h1>
       </div>
       <div class="info">
@@ -61,6 +61,10 @@ export default {
   methods:{
     successAction(){
       this.islogin = true;
+    },
+    leaveAction(){
+      localStorage.setItem('logUser','');
+      this.islogin = false;
     }
   },
   created(){
@@ -92,6 +96,10 @@ export default {
     span{
       width: 0.5rem;
       height: 100%;
+      font-size: 0.16rem;
+      text-align: center;
+      line-height: 0.5rem;
+      color: #fff;
     }
     h1{
       width: calc(100% - 0.5rem);

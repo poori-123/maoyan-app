@@ -146,8 +146,11 @@ export default {
             this.dayActive = index;
         },
         buyAction(str){
-            console.log(str)
-            this.$emit('pushChooseSeats',str);
+            var img = this.moviesList[this.mvActive].img;
+            this.$emit('pushChooseSeats',{
+                no: str,
+                img: img
+            });
         },
         tomoAction(){
             this.dayActive ++;
@@ -183,7 +186,6 @@ export default {
                     //         n = lis.length-1
                     //     }
                     //     this.mvActive = n;
-                    //     console.log(n)
                     //     this.scroll.scrollTo(-this.width*n,0,300);
                     // })
                 })

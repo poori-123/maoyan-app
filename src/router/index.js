@@ -45,22 +45,30 @@ const routes = [
       {
         path: 'md/:id',
         name: 'movieDetail',
-        component: () => import(/* webpackChunkName:"movieDetail" */ '../components/home/movieDetail.vue')
+        components: {
+          noCatch: () => import(/* webpackChunkName:"movieDetail" */ '../components/home/movieDetail.vue')
+        }
       },
       {
         path: 'mc/:id',
         name: 'movieCinema',
-        component: () => import(/* webpackChunkName:"movieCinema" */ '../components/home/movieCinema.vue')
+        components: {
+          noCatch: () => import(/* webpackChunkName:"movieCinema" */ '../components/home/movieCinema.vue')
+        }
       },
       {
         path: 'cd/:id',
         name: 'cinemaDetail',
-        component: () => import(/* webpackChunkName:"cinemaDetail" */ '../components/home/cinemaDetail.vue')
+        components: {
+          noCatch: () => import(/* webpackChunkName:"cinemaDetail" */ '../components/home/cinemaDetail.vue')
+        }
       },
       {
-        path: 'cs/:no',
+        path: 'cs/:query',
         name: 'chooseSeats',
-        component: () => import(/* webpackChunkName:"chooseSeats" */ '../components/home/chooseSeats.vue'),
+        components: {
+          noCatch: () => import(/* webpackChunkName:"chooseSeats" */ '../components/home/chooseSeats.vue')
+        } ,
         children: [
           {
             path: ':query',

@@ -6,7 +6,6 @@
 
         </div>
       </scroll-load>
-      <router-view/>
   </div>
 </template>
 

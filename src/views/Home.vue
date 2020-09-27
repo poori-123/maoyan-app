@@ -17,7 +17,9 @@
         <span class="iconfont iconsearch"></span>
       </div>
     </div>
-    <!-- <keep-alive> -->
+
+    <!-- 需要缓存的路由 -->
+    <keep-alive>
       <router-view 
         @pushMovieDetail="pushMovieAction" 
         @pushMovieCinema="pushMcAction"
@@ -25,7 +27,17 @@
         @pushChooseSeats="pushCSAction"
         class="subpage" 
       />
-    <!-- </keep-alive> -->
+    </keep-alive>
+
+    <!-- 不能缓存的路由 -->
+    <router-view 
+        @pushMovieDetail="pushMovieAction" 
+        @pushMovieCinema="pushMcAction"
+        @pushCinemaDetail="pushCdAction"
+        @pushChooseSeats="pushCSAction"
+        class="subpage" 
+        name="noCatch"
+      />
   </div>
 </template>
 
@@ -94,11 +106,13 @@ export default {
         }
       })
     },
-    pushCSAction(no){
+    pushCSAction(obj){
+      var no = obj.no;
+      var img = obj.img;
       this.$router.push({
         name: 'chooseSeats',
         params: {
-          no
+          query: JSON.stringify(obj)
         }
       })
     }

@@ -22,7 +22,6 @@ export default {
             }
         },
         cityId(s1,g1,s2,g2){
-            console.log(s2.chooseCity.id)
             return s2.chooseCity.id;
         }
     },

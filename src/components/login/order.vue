@@ -10,7 +10,9 @@
                 <h6>{{item.cn}} <span class="iconfont iconarrow"></span></h6>
                 
                 <div class="info">
-                    <div class="img"></div>
+                    <div class="img">
+                        <img :src="item.img" alt="">
+                    </div>
                     <div class="concon">
                         <h2 class="ellipsis">{{item.mn}}</h2>
                         <h3 class="ellipsis">{{item.showDate}} {{item.showTime}}</h3>
@@ -112,6 +114,10 @@ export default {
                         width: 0.57rem;
                         height: 0.8rem;
                         background: #bbb;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
                     }
                     .concon{
                         width: calc(100% - 0.57rem);

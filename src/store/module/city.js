@@ -5,7 +5,7 @@ import {GETCITIES_API} from '../../api/url';
 export default {
     namespaced: true,
     state: {    
-        cities: {},
+        cities: '',
         nearCities:[
             {
                 id: 30,

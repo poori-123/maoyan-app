@@ -11,7 +11,9 @@
         <span @click.stop="routerChangeAction('/shop')" >商城</span>
       </div>
     </header>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
     <footer>
       <div 
         v-for="item in routerIcon" 

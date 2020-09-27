@@ -37,7 +37,7 @@ export default {
             /* -------------------------- mock --------------------------------- */
             var {data:{seatData} } = await axios.get('/ajax/chooseSeats');
             /* -------------------------- mock --------------------------------- */
-
+            
             var data = {
                 cinema: seatData.cinema,
                 hall: seatData.hall,

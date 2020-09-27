@@ -170,9 +170,9 @@ export default {
                 lang: this.baseInfo.show.lang,
                 dim: this.baseInfo.show.dim,
                 showTime: this.baseInfo.show.showTime,
-                seatList: this.chooseSeat
+                seatList: this.chooseSeat,
+                img: JSON.parse(this.$route.params.query).img
             };
-            console.log(obj);
             this.$router.push({
                 name: 'surebuy',
                 params:{
@@ -198,7 +198,9 @@ export default {
         }
     },
     created(){
-        this.$store.dispatch('chooseSeats/getSeats',this.$route.params.no);
+        var obj = JSON.parse(this.$route.params.query);
+        var no = obj.no;
+        this.$store.dispatch('chooseSeats/getSeats',no);
 
         var logUser = localStorage.getItem('logUser');
         if(logUser){

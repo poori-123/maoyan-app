@@ -6,7 +6,9 @@
           <span class="time ellipsis">{{this.time | timeF}}</span>
       </div>
       <div class="info">
-          <div class="img"></div>
+          <div class="img">
+              <img :src="info.img" alt="">
+          </div>
           <div class="con">
               <h2 class="ellipsis">{{info.mn}}</h2>
               <h3 class="ellipsis">{{info.dateDesc}}{{info.showDate}} {{info.showTime}}({{info.lang}}{{info.dim}})</h3>
@@ -97,7 +99,7 @@ export default {
                 var arr = [obj];
                 localStorage.setItem('orederList',JSON.stringify(arr));
             }else{
-                var n = orederList.findIndex( item => item.name == user.nam );
+                var n = orederList.findIndex( item => item.name == user.name );
                 if(n == -1){
                     var obj = {
                         user: user.name,
@@ -195,6 +197,10 @@ export default {
             width: 0.72rem;
             height: 0.99rem;
             background: #bbb;
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
         .con{
             width: calc(100% - 0.72rem);

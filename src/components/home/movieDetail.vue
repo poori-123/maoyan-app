@@ -119,7 +119,6 @@ import logo from '../../assets/logo.png';
 export default {
     filters: {
         peopleNumT: (num)=>{
-            console.log(num)
             if(num >= 1000000){
                 var a = Math.floor(num / 1000000);
                 var b = Math.floor((num - b*1000000)/1000);

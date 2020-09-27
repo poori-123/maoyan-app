@@ -1,6 +1,6 @@
 <template>
   <div id="city">
-    <div class="scroll" ref="scroll">
+    <div class="scroll" ref="scroll" >
         <div class="scroll-wrap">
             <div class="pos">
                 <h3 ref="pos">定位城市</h3>
@@ -111,6 +111,7 @@ export default {
     },
     methods: {
         scrollAction(str){
+            this.scroll.refresh();
             if(str == 'pos' || str == 'hot' || str == 'near' ){
                 var h = this.$refs[str].offsetTop;
             }else{
